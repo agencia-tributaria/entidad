@@ -38,4 +38,5 @@ jobs:
           REPO: ${{ env.GITHUB_REPOSITORY }}
           OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
         run: |
+          mvn help:effective-settings
           mvn deploy -Drepo=$(echo $REPO | cut -d'/' -f 2) -Downer=${OWNER}
