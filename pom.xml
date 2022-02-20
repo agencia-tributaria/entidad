@@ -18,8 +18,8 @@
   </build>
   <pluginRepositories>
     <pluginRepository>
-      <id>agencia-tributaria</id>
-      <url>https://maven.pkg.github.com/agencia-tributaria/*</url>
+      <id>softalks</id>
+      <url>https://maven.pkg.github.com/softalks/maven_archetype</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
