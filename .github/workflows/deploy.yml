@@ -1,9 +1,7 @@
 on:
   push:
     paths:
-      - 'pom.xml'
-      - 'settings.xml'
-      - '.mvn/maven.config'
+      - '**/pom.xml'
       - '.github/workflows/deploy.yml'
 jobs:
   build:
