@@ -18,7 +18,7 @@
   </build>
   <pluginRepositories>
     <pluginRepository>
-      <id>softalks</id>
+      <id>downstream-repository</id>
       <url>https://maven.pkg.github.com/softalks/maven_archetype</url>
       <snapshots>
         <enabled>true</enabled>
