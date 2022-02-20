@@ -16,10 +16,6 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - id: downstream-repository
-        run: |
-          wget http://softalks.github.io/public.token
-          echo "::set-output name=TOKEN::$(cat public.token)"
       - uses: s4u/maven-settings-action@v2.5.0
         with:
           servers: |
@@ -32,4 +28,4 @@ jobs:
               "username": "${{ secrets.GITHUB_TOKEN }}",
               "password": "${{ secrets.GITHUB_TOKEN }}"
             }]
-      - run: mvn deploy
+      - run: --batch-mode --update-snapshots mvn deploy
