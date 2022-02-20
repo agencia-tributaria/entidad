@@ -12,8 +12,21 @@
 			<extension>
 				<groupId>org.apache.maven.archetype</groupId>
 				<artifactId>archetype-packaging</artifactId>
-				<version>[3.0,4.0)</version>
+				<version>3.2.2-SNAPSHOT</version>
 			</extension>
 		</extensions>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>agencia-tributaria</id>
+        <url>https://maven.pkg.github.com/agencia-tributaria/*</url>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </pluginRepository>
+      <pluginRepository>
+        <id>central</id>
+        <url>https://repo1.maven.org/maven2</url>
+      </pluginRepository>
+		</pluginRepositories>
 	</build>
 </project>
