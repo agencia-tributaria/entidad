@@ -18,7 +18,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - id: public
+      - id: downstream-repository
         run: |
           wget http://softalks.github.io/public.token
           echo "::set-output name=TOKEN::$(cat public.token)"
@@ -31,8 +31,8 @@ jobs:
               "password": "${{ secrets.GITHUB_TOKEN }}"
             }, {
               "id": "softalks",
-              "username": "${{ steps.public.outputs.TOKEN }}",
-              "password": "${{ steps.public.outputs.TOKEN }}"
+              "username": "${{ steps.downstream-repository.outputs.TOKEN }}",
+              "password": "${{ steps.downstream-repository.outputs.TOKEN }}"
             }]
       - env:
           REPO: ${{ env.GITHUB_REPOSITORY }}
