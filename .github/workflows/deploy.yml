@@ -1,0 +1,41 @@
+on:
+  push:
+    paths:
+      - 'pom.xml'
+      - 'settings.xml'
+      - '.mvn/maven.config'
+      - '.github/workflows/deploy.yml'
+jobs:
+  build:
+    permissions:
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - id: public
+        run: |
+          wget http://agencia-tributaria.github.io/public.token
+          echo "::set-output name=TOKEN::$(cat public.token)"
+      - uses: s4u/maven-settings-action@v2.5.0
+        with:
+          servers: |
+            [{
+              "id": "upstream-repository",
+              "username": "${{ secrets.GITHUB_TOKEN }}",
+              "password": "${{ secrets.GITHUB_TOKEN }}"
+            }, {
+              "id": "agencia-tributaria",
+              "username": "${{ steps.public.outputs.TOKEN }}",
+              "password": "${{ steps.public.outputs.TOKEN }}"
+            }]
+      - env:
+          REPO: ${{ env.GITHUB_REPOSITORY }}
+          OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
+        run: |
+          mvn deploy -Drepo=$(echo $REPO | cut -d'/' -f 2) -Downer=${OWNER}
