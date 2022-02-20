@@ -7,6 +7,13 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  <distributionManagement>
+    <repository>
+      <id>upstream-repository</id>
+      <name>github.com/agencia-tributaria/entidad</name>
+      <url>https://maven.pkg.github.com/agencia-tributaria/entidad</url>
+    </repository>
+  </distributionManagement>
   <build>
     <extensions>
       <extension>
