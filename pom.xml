@@ -9,7 +9,7 @@
   </properties>
   <distributionManagement>
     <repository>
-      <id>agencia-tributaria.snapshots.upload</id>
+      <id>agencia-tributaria.upload</id>
       <name>Desarrollo AEAT (upload)</name>
       <url>https://maven.pkg.github.com/agencia-tributaria/entidad</url>
     </repository>
