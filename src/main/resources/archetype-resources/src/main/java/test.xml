@@ -1,3 +1,4 @@
+<test>$model</test>
 #if($model.foo)
 <document>
     #foreach($bar in $model.foo.children())
