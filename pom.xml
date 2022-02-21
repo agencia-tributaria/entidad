@@ -9,9 +9,9 @@
   </properties>
   <distributionManagement>
     <repository>
-      <id>upstream-repository</id>
-      <name>github.com/agencia-tributaria/entidad</name>
-      <url>https://maven.pkg.github.com/agencia-tributaria/entidad</url>
+      <id>agencia-tributaria.snapshots.upload</id>
+      <name>Desarrollo AEAT (upload)</name>
+      <url>https://maven.pkg.github.com/agencia-tributaria/snapshots</url>
     </repository>
   </distributionManagement>
   <build>
@@ -23,17 +23,4 @@
       </extension>
     </extensions>
   </build>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>downstream-repository</id>
-      <url>https://maven.pkg.github.com/softalks/maven_archetype</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-    <pluginRepository>
-      <id>central</id>
-      <url>https://repo1.maven.org/maven2</url>
-    </pluginRepository>
-  </pluginRepositories>
 </project>
