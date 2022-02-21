@@ -1,0 +1,10 @@
+#if($model.foo)
+<document>
+    #foreach($bar in $model.foo.children())
+    <repeatableElement>
+        <aaa>$bar.node().element('baz').text</aaa>
+        <bbb>$bar.node().element('qux').text</bbb>
+    </repeatableElement>
+    #end
+</document>
+#end
