@@ -16,7 +16,7 @@ jobs:
         with:
           servers: |
             [{
-              "id": "agencia-tributaria.snapshots.upload",
+              "id": "agencia-tributaria.upload",
               "username": "${{ secrets.GITHUB_TOKEN }}",
               "password": "${{ secrets.GITHUB_TOKEN }}"
             }]
