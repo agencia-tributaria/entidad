@@ -1,8 +1,4 @@
-on:
-  push:
-    paths:
-      - '**/pom.xml'
-      - '.github/workflows/deploy.yml'
+on: [push]
 jobs:
   build:
     permissions:
