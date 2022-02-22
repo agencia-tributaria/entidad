@@ -11,3 +11,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package-name: agencia-tributaria.entidad
           min-versions-to-keep: 1
+          delete-only-pre-release-versions: "true"
+
