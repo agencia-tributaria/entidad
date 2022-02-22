@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: smartsquaregmbh/delete-old-packages@v0.3.3
+        with:
+          names: agencia-tributaria.entidad
 
 
