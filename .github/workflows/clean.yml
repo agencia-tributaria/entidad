@@ -8,10 +8,6 @@ jobs:
       packages: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/delete-package-versions@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          package-name: agencia-tributaria.entidad
-          min-versions-to-keep: 1
-          delete-only-pre-release-versions: "true"
+      - uses: smartsquaregmbh/delete-old-packages@v0.3.3
+
 
