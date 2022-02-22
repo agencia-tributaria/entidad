@@ -1,4 +1,9 @@
-on: [push]
+on:
+  push:
+    paths:
+      - 'src/**.*'
+      - 'pom.xml'
+  workflow_dispatch:
 jobs:
   build:
     permissions:
