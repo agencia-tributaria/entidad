@@ -17,7 +17,7 @@ jobs:
           servers: |
             [{
               "id": "upload",
-              "username": "${{ env.GITHUB_REPOSITORY_OWNER }}",
+              "username": "${{ github.actor }}",
               "password": "${{ secrets.GITHUB_TOKEN }}"
             }]
       - run: mvn --batch-mode --update-snapshots deploy
