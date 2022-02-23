@@ -1,9 +1,11 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <servers>
-    <server>
-      <id>$groupId</id>
-      <username>$groupIdPat</username>
-      <password>$groupIdPat</password>
-    </server>
-  </servers>
+    <servers>
+    #foreach($repository in $model.github.repositories.children())
+        <server>
+            <id>$repository.node().element('owner').text</id>
+            <username>$model.github.actor.text</username>
+            <password>$model.github.token.text</password>
+        </server>
+    #end
+    </servers>
 </settings>
