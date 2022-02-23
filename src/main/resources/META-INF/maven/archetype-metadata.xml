@@ -8,11 +8,11 @@
 	</requiredProperties>
 	<fileSets>
 		<fileSet filtered="true" packaged="true">
-		    <directory>src/test/java</directory>
-		    <includes>
-			<include>**/*.java</include>
-			<include>**/*.xml</include>
-		    </includes>
+			<directory>src/test/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>**/*.xml</include>
+			</includes>
 		</fileSet>
 		<fileSet filtered="true" packaged="true">
 			<directory>src/main/java</directory>
@@ -21,12 +21,12 @@
 				<include>**/*.xml</include>
 			</includes>
 		</fileSet>
-<!-- 		<fileSet filtered="true"> -->
-<!-- 			<directory>/</directory> -->
-<!-- 			<includes> -->
-<!-- 				<include>settings.xml</include> -->
-<!-- 			</includes> -->
-<!-- 		</fileSet> -->
+		<fileSet filtered="true">
+			<directory>conf</directory>
+			<includes>
+				<include>settings.xml</include>
+			</includes>
+		</fileSet>
 		<fileSet>
 			<directory>.mvn</directory>
 			<includes>
