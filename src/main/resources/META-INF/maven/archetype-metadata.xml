@@ -22,7 +22,7 @@
 			</includes>
 		</fileSet>
 		<fileSet filtered="true">
-			<directory>.</directory>
+<!-- 			<directory>.</directory> -->
 			<includes>
 				<include>settings.xml</include>
 			</includes>
