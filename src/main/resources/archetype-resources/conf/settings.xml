@@ -1,11 +1,18 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <servers>
-    #foreach($repository in $model.github.repositories.children())
+        #set ($actor=$model.github.actor.node().text)
         <server>
-            <id>$repository.node().element('owner').text</id>
-            <username>$model.github.actor.text</username>
-            <password>$model.github.token.text</password>
+            <id>upstream</id>
+            <username>$actor</username>
+            <password>$model.github.repository.token.text</password>
         </server>
-    #end
+        #foreach($repository in $model.github.dependencies.repository)
+        <server>
+            #set ($child=$repository.node())
+            <id>${child.element('owner').text}.${child.element('name').text}</id>
+            <username>$actor</username>
+            <password>${child.element('token').text}.</password>
+        </server>
+        #end
     </servers>
 </settings>

@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
@@ -12,6 +12,13 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>upstream</id>
+            <url>https://maven.pkg.github.com/$model.github.repository.owner.text/$model.github.repository.name.text</url>
+        </repository>
+    </distributionManagement>
 
     <dependencyManagement>
         <dependencies>
@@ -31,6 +38,14 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+        #foreach($dependency in $model.github.dependencies.repository.artifact)
+        <dependency>
+            #set ($repository=$dependency.parent.node())
+            <groupId>$repository.element('owner').text</groupId>
+            <artifactId>${repository.element('name').text}.$dependency.node().text</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        #end
     </dependencies>
 
     <build>
@@ -47,13 +62,15 @@
     </build>
 
     <repositories>
-        #foreach($repository in $model.github.repositories.children())
+        #foreach($repository in $model.github.dependencies.repository)
         <repository>
-            #set ($owner=$repository.node().element('owner').text)
-            <id>$owner</id>
-            <url>https://maven.pkg.github.com/$owner/$repository.node().element('name').text</url>
+            #set ($child=$repository.node())
+            #set ($owner=$child.element('owner').text)
+            #set ($name =$child.element('name' ).text)
+            <id>$owner.$name</id>
+            <url>https://maven.pkg.github.com/$owner/$name</url>
         </repository>
         #end
     </repositories>
-    
+
 </project>
