@@ -27,11 +27,11 @@
 <!-- 				<include>settings.xml</include> -->
 <!-- 			</includes> -->
 <!-- 		</fileSet> -->
-<!-- 		<fileSet> -->
-<!-- 			<directory>.mvn</directory> -->
-<!-- 			<includes> -->
-<!-- 				<include>*</include> -->
-<!-- 			</includes> -->
-<!-- 		</fileSet> -->
+		<fileSet>
+			<directory>.mvn</directory>
+			<includes>
+				<include>*.config</include>
+			</includes>
+		</fileSet>
 	</fileSets>
 </archetype-descriptor>
